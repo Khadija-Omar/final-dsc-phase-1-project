@@ -1,36 +1,115 @@
-# Phase 1 Project
+# Box Office Trends and Insights: Microsoft New Movie Studio
 
-You've made it all the way through the first phase of this course - take a minute to celebrate your awesomeness!
+### Introduction
 
-![awesome](https://raw.githubusercontent.com/learn-co-curriculum/dsc-phase-1-project/master/awesome.gif)
+In this analysis for Microsoft, we will make use of everything we have learned about pandas, data cleaning, and
 
-Now you will put your new skills to use with a large end-of-Phase project! This project should take 20 to 30 hours to complete.
+exploratory data analysis. In order to complete this analysis, you will have to import, clean, combine, reshape
 
-## Project Overview
+and visualize data to answer the questions provided.Even as a junior data scientist, you can produce interesting
 
-For this project, you will use exploratory data analysis to generate insights for a business stakeholder.
+analyses by combining multiple datasets .You will get a chance to practice all of these skills with the movie  
 
-### Business Problem
+datasets which contains information about movies.
 
-Microsoft sees all the big companies creating original video content and they want to get in on the fun. They have decided to create a new movie studio, but they don’t know anything about creating movies. You are charged with exploring what types of films are currently doing the best at the box office. You must then translate those findings into actionable insights that the head of Microsoft's new movie studio can use to help decide what type of films to create.
+### Objectives
 
-### The Data
+You will be able to:
 
-In the folder `zippedData` are movie datasets from:
+.Practice loading data with pandas
+  
+.Practice identifying and handling missing values
+  
+.Practice joining multiple dataframes
+  
+.Practice using data visualizations to explore data, and interpreting those visualizations
+  
+.Perform a full exploratory data analysis process to gain insight about a dataset
 
-* [Box Office Mojo](https://www.boxofficemojo.com/)
-* [IMDB](https://www.imdb.com/)
-* [Rotten Tomatoes](https://www.rottentomatoes.com/)
-* [TheMovieDB](https://www.themoviedb.org/)
-* [The Numbers](https://www.the-numbers.com/)
 
-It is up to you to decide what data from this to use and how to use it. If you want to make this more challenging, you can scrape websites or make API calls to get additional data. If you are feeling overwhelmed or behind (e.g. struggled with the Phase 1 Code Challenge), we recommend you use only the following data files:
+### Your Task : Analyzing movies datasets to provide insights for Microsoft New Movie Studio
 
-* imdb.title.basics
-* imdb.title.ratings
-* bom.movie_gross
 
-## Deliverables
+
+
+
+
+### Data Understanding
+
+The data sets offered contain a wide range of data essential to understanding our business concerns.There are three selected 
+
+datasets.The data is contained in three separate CSV files:
+
+1.imdb.title.basics.csv: which provides information about movies that emphasize various genres,titles,start years and their      running times.
+    
+2.imdb.title.ratings.csv: which provides information about average rating of movies and their number of votes.
+    
+3.bom.movie_gross.csv: that highlights the box office earnings of movies over a particular period of time.
+ 
+4.tn.movie_budgets.csv: that highlights the production budgets and domestic,worldwide profits.
+
+
+
+
+### Business Understanding
+
+
+Microsoft sees all the big companies creating original video content and they want to get in on the fun. They have 
+
+decided to create a new movie studio, but they don’t know anything about creating movies. You are charged with exploring 
+
+what types of films are currently doing the best at the box office. You must then translate those findings into actionable 
+
+insights that the head of Microsoft's new movie studio can use to help decide what type of films to create.
+
+
+The business questions to be answered  are:
+
+.Analyzing the distribution of genres in movies dataset and the mean runtime minutes by 
+ genre to find out how long most movies run.
+
+.Analyzing the most popular and profitable genres to invest in.
+
+.Analyzing studios with the highest  average total gross.
+
+.Analyzing the relationship between total gross profit and the production budget.
+
+
+
+
+### Requirements
+
+1.Import the required libraries and load the data with pandas.
+Import pandas,seaborn,numpy and matplotlib.Create  dataframes that represent the three CSV files. 
+Use pandas methods to inspect the shape and other attributes of these dataframes. 
+
+2.Perform Data Cleaning and answer the first question.
+You will be required to check for and deal with missing values,extract and split the genres then create a 
+visualization of distribution of genres.
+
+3.Get the mean runtime minutes by genre.
+You will be required to split the genres, find the mean runtime_minutes by genre and provide a visualization.
+
+4.Analyze the most popular and profitable genres to invest in.
+You will be required to merge dataframes,perform data cleaning on merged dataframe, grooup by genres and number of votes 
+or averagerating and create a visualization.
+
+5.Analyzing studios with the highest  average total gross.
+You will be required to find average total gross of different studios and create a visualization to find most profitable
+studios.
+
+
+
+
+### Import the required libraries
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+import seaborn as sns
+
+
 
 There are three deliverables for this project:
 
