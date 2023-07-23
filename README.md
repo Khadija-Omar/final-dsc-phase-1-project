@@ -103,42 +103,250 @@ studios.
 
 ### Import the required libraries
 
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-%matplotlib inline
-import seaborn as sns
+
+1.import pandas as pd
+
+
+2.import numpy as np
+
+
+3.import matplotlib.pyplot as plt
+
+
+4.%matplotlib inline
 
 
 
-There are three deliverables for this project:
+5.import seaborn as sns
 
-* A **GitHub repository**
-* A **Jupyter Notebook**
-* A **non-technical presentation**
 
-Review the "Project Submission & Review" page in the "Milestones Instructions" topic for instructions on creating and submitting your deliverables. Refer to the rubric associated with this assignment for specifications describing high-quality deliverables.
 
-### Key Points
+### 1.Load the Data
 
-* **Your analysis should yield three concrete business recommendations.** The ultimate purpose of exploratory analysis is not just to learn about the data, but to help an organization perform better. Explicitly relate your findings to business needs by recommending actions that you think the business (Microsoft) should take.
+1.Load the content on title.basics.csv
 
-* **Communicating about your work well is extremely important.** Your ability to provide value to an organization - or to land a job there - is directly reliant on your ability to communicate with them about what you have done and why it is valuable. Create a storyline your audience (the head of Microsoft's new movie studio) can follow by walking them through the steps of your process, highlighting the most important points and skipping over the rest.
 
-* **Use plenty of visualizations.** Visualizations are invaluable for exploring your data and making your findings accessible to a non-technical audience. Spotlight visuals in your presentation, but only ones that relate directly to your recommendations. Simple visuals are usually best (e.g. bar charts and line graphs), and don't forget to format them well (e.g. labels, titles).
 
-## Getting Started
 
-Please start by reviewing this assignment, the rubric at the bottom of it, and the "Project Submission & Review" page. If you have any questions, please ask your instructor ASAP.
 
-Next, we recommend you check out [the Phase 1 Project Templates and Examples repo](https://github.com/learn-co-curriculum/dsc-project-template) and use the MVP template for your project.
 
-Alternatively, you can fork [the Phase 1 Project Repository](https://github.com/learn-co-curriculum/dsc-phase-1-project), clone it locally, and work in the `student.ipynb` file. Make sure to also add and commit a PDF of your presentation to your repository with a file name of `presentation.pdf`.
 
-## Project Submission and Review
 
-Review the "Project Submission & Review" page in the "Milestones Instructions" topic to learn how to submit your project and how it will be reviewed. Your project must pass review for you to progress to the next Phase.
+2.Write a code that displays a summary of , providing useful information about its structure and contents.
 
-## Summary
 
-This project will give you a valuable opportunity to develop your data science skills using real-world data. The end-of-phase projects are a critical part of the program because they give you a chance to bring together all the skills you've learned, apply them to realistic projects for a business stakeholder, practice communication skills, and get feedback to help you improve. You've got this!
+
+
+
+#Run this cell without changes
+
+#There should be 146144 rows
+
+
+assert title_basics.shape[0] == 146144
+
+#There should be 6 columns. If this fails, make sure you got rid of
+#the extra index column
+
+
+assert title_basics.shape[1] == 6
+
+
+
+#These should be the columns
+
+
+assert list(title_basics.columns) == [
+    "tconst",
+    "primary_title",
+    "original_title",
+    "start_year",
+    "runtime_minutes",
+    "genres",
+]
+
+
+# Perform Data Cleaning
+
+1.Write a code that displays how many null values we have in the title_basics DataFrame
+
+
+
+2.Assert the number of null values
+
+
+assert null_values0 == 37168, "Expected 37168 null values, but found {}".format(null_values0)
+      
+      
+      
+3.Write a code that shows if we have duplicates in the title_basics DataFrame      
+
+
+
+
+4.Drop the rows with null values in the columns original_title,runtime_minutes and genre
+
+
+
+
+5.Convert start year to datetime object
+
+
+### Analyzing Distribution of Genres in the dataset  
+
+
+Extract and split the genres,Loop through the genre_data and add individual genres to the all_genres list,Create a DataFrame of Genre counts,Create a bar plot to visualize the distribution of genres,Print the top 10 most common genres.
+
+
+
+
+### Analyzing the mean runtime minutes by genre
+
+Find summary statistics of runtime,Split genres into separate rows,Merge genre_df with title_basics,Get the mean runtime_minutes by genre
+Create a bar plot of mean runtime_minutes by genre.
+
+
+
+### Answering the first Question
+
+Based on the analysis of genre distruibution in the movie dataset we see that Documentary,Drama,Comedy,Thriller and horror
+
+have the highest number of movies,Microsoft should consider investing in creating films in these genres.
+
+
+
+Based on the analysis of the mean runtimes by genres we see that most of these genres have a runtime of 80-100
+
+minutes,Microsoft should consider in investing in films that have a runtime of 80-100 minutes.
+
+
+
+### 2.Load the data
+
+Load the data on imdb.title.ratings.csv, Write a code that displays a summary of , providing useful information about its structure and contents,Merge the 'title_ratings' and 'title_basics' DataFrames on 'tconst',Drop rows with missing values in 'runtime_minutes' and 'genres' columns.
+
+
+
+
+### Analyzing the most popular and profitable genres to invest in.
+
+
+Find the top 5 most popular genre (The ascending parameter to False is used to sort data in descending order.),create a DataFrame named liked_genre by grouping the numvotes column  by the genres column.Create a bar plot of the top genre against the number of votes.Creates a DataFrame named liked_genre1 by grouping the averagerating column  by the genres column(the iloc method is used to select the top 15 rows of the sorted DataFrame). Create a bar plot of the top genre against averagerating.
+
+
+
+### Answering the second question
+
+
+The top 3 most popular genres combination according to the number of votes are: (Action,Fantasy,War), (Action,Adventure,SciFi) and (Adventure,Mystery, SciFi).
+
+
+The top three genre combinations with the highest ratings are :(Comedy,Documentary,Fantasy),(Documentary,Family,Medical),(History,Sport)
+
+
+
+
+Microsoft should should consider creating films that combine elements from these genres.By creating films that combine elements
+
+from popular genres ,Microsoft can appeal to a wide audience and increase their chances of success at the Box office .For
+
+example they could create an action-adventure film that has elements of fantasy.
+
+
+
+
+### 3.Load the data
+
+
+Load the content on bom.movie_gross.csv,Write a code that displays a summary of , providing useful information about its structure and contents,Write a code to  generate descriptive statistics of the dataframe.
+
+
+
+### Perform Data cleaning
+
+Check for null values,Drop any rows with missing values,Convert the domestic_gross column to integer datatype, Convert the 'year' column to a datetime datatype, Remove non-numeric characters (e.g., commas) from 'foreign_gross' column,Convert the cleaned strings to integer values,
+Convert the foreign_gross column to integer datatype,Drop any rows with missing or invalid values again.
+
+
+### Analyzing studios with the highest average total gross.
+
+
+Create a new column "total_gross" in the movie_gross1 that adds the domestic_gross and foreign_gross columns,Check to see if the new column was added,Write a  code that calculates the mean total_gross revenue for each movie studio in the movie_gross DataFrame.Create the movie_gross1_grouping into a new data frame.Sort the groups by ascending domestic gross,Create a bar plot of the top 10 studios by  total_gross.
+
+
+
+### Answering the third question
+
+From the graph above, HC and P/DW are the top 2 studios with the highest average total gross.
+
+
+-Also, Par. and Uni. are the bottom 2 studios with the lowest average total gross hence the least market share.
+
+
+-Microsoft should consider partnering with HC and P/DW to create high grossing films.By partnering with them ,Microsoft can
+
+leverage their expertise in creating successful films that appeal to a wide audience increasing their success at the box
+
+office.
+
+
+
+### 4.Load the data
+
+
+Load the data on imdb.title.ratings.csv and write a code that displays a summary of , providing useful information about its structure and contents.   
+
+
+
+### Perform Data Cleaning
+
+
+Convert 'production_budget' to numeric data type,Convert 'domestic_gross' to numeric data type,Convert 'foreign_gross' to numeric data type.
+
+
+
+### Analyzing the relationship between total gross profit and the production budget.
+
+Calculate domestic gross profit for each movie,Calculate worldwide gross profit for each movie,Calculate total gross profit for each movie,Check for the new columns.Find the correlation between 'production_budget' and 'total_gross_profit',Create the scatter plot.
+
+
+
+
+### Answering the fourth question
+
+Microsoft should consider investing in high budget films.There is a moderate positive correlation between production budget
+
+and total gross profit which suggests that in general as the production budget increases ,gross profit also tends to increase.
+
+However, it is important to note that there is still a variability in the data and other factors might influence the
+
+relationship.
+
+
+
+
+### Summary
+
+
+From the above analysis of the four business problems, Microsoft may create a film production company that
+
+successfully competeswith current studios and creates engaging material for audiences by investing in high
+
+budget films, partnering with HC and P/DW to create high grossing films,consider creating films that combine
+
+elements from the most popular genres,consider in investing in films that have a runtime of 80-100 minutes.
+
+
+
+
+
+
+
+Aside from the analysis other recommendations i would give to Microsoft new movie studio include creating movies
+
+with strong character development with high quality content.Microsoft should consider partnering with well known
+
+directors and actors to help bring their movies to life and create a distinct brand and strategy.
+
+
+
